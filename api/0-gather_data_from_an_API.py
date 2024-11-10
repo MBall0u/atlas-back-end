@@ -4,8 +4,8 @@ This script gets information from a rest API and then sorts
 through it and prints a formatted string
 """
 
-import sys
 import requests
+import sys
 
 
 def request_processor():
