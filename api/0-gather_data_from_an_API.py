@@ -25,8 +25,7 @@ def request_processor():
 
     employee_get = requests.get(
         "https//jsonplaceholder.typicode.com/user/{}".format(employee_id))
-    tasks_get = requests.get(
-        "https//jsonplaceholder.typicode.com/todos")
+    tasks_get = requests.get("https//jsonplaceholder.typicode.com/todos")
 
     if employee_get.status_code != 200 or tasks_get.status_code != 200:
         print("one or more GET requests have failed")
