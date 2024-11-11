@@ -23,11 +23,13 @@ def request_processor():
         print("invalid employee id provided")
         return
 
-    employee_get = requests.get(
-        "https//jsonplaceholder.typicode.com/user/{}".format(employee_id))
-    tasks_get = requests.get(
-        "https//jsonplaceholder.typicode.com/todos?userId={}".format(
-            employee_id))
+    employee_url = "https//jsonplaceholder.typicode.com/user/{}".format(
+        employee_id)
+    tasks_url = "https//jsonplaceholder.typicode.com/todos?userId={}".format(
+            employee_id)
+
+    employee_get = requests.get(employee_url)
+    tasks_get = requests.get(tasks_url)
 
     if employee_get.status_code != 200 or tasks_get.status_code != 200:
         print("one or more GET requests have failed")
