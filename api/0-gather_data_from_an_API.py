@@ -19,13 +19,14 @@ def request_processor():
     employee_id = argv[1]
     try:
         employee_id = int(employee_id)
-    except VslueError:
+    except ValueError:
         print("invalid employee id provided")
         return
 
     employee_get = requests.get(
         "https//jsonplaceholder.typicode.com/user/{}".format(employee_id))
-    tasks_get = requests.get("https//jsonplaceholder.typicode.com/todos")
+    tasks_get = requests.get(
+        "https//jsonplaceholder.typicode.com/todos?userId={}".format(employee_id))
 
     if employee_get.status_code != 200 or tasks_get.status_code != 200:
         print("one or more GET requests have failed")
@@ -34,13 +35,11 @@ def request_processor():
     employee_json = employee_get.json()
     tasks_json = tasks_get.json()
 
-    employee_name = employee_json['name']
-    employee_tasks = [
-        task for task in tasks_json if task['userId'] == employee_id]
+    employee_name = employee_json.get("name")
 
-    total_tasks = len(employee_tasks)
-    completed_tasks = len(
-        [task for task in employee_tasks if task['completed']])
+    total_tasks = len(tasks_json)
+    completed_tasks = [task for task in tasks_json if task['completed']]
+    total_completed_tasks = len(completed_tasks)
 
     print("Employee {} is done with tasks({}/{}):".format(
         employee_name,
