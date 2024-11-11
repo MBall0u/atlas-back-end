@@ -48,7 +48,7 @@ def request_processor():
         completed_tasks,
         total_tasks))
 
-    for task in employee_tasks:
+    for task in tasks_json:
         if task['completed']:
             print("\t {}".format(task['title']))
 
