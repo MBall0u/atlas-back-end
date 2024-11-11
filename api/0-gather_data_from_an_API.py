@@ -12,11 +12,11 @@ def request_processor():
     """
     returns information about an employees todo list progress
     """
-    if len(argv) < 2:
+    if len(sys.argv) < 2:
         print("no employee id provided")
         return
 
-    employee_id = argv[1]
+    employee_id = sys.argv[1]
     try:
         employee_id = int(employee_id)
     except ValueError:
