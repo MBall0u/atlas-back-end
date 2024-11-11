@@ -45,7 +45,7 @@ def request_processor():
 
     print("Employee {} is done with tasks({}/{}):".format(
         employee_name,
-        completed_tasks,
+        total_completed_tasks,
         total_tasks))
 
     for task in tasks_json:
