@@ -25,7 +25,7 @@ def request_processor():
 
     employee_url = "https://jsonplaceholder.typicode.com/users/{}".format(
         employee_id)
-    tasks_url = "https//jsonplaceholder.typicode.com/users/{}/todos".format(
+    tasks_url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(
             employee_id)
 
     employee_get = requests.get(employee_url)
