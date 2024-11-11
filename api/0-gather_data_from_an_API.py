@@ -23,7 +23,7 @@ def request_processor():
         print("invalid employee id provided")
         return
 
-    employee_url = "https//jsonplaceholder.typicode.com/user/{}".format(
+    employee_url = "https//jsonplaceholder.typicode.com/user/{}?".format(
         employee_id)
     tasks_url = "https//jsonplaceholder.typicode.com/users/{}/todos".format(
             employee_id)
