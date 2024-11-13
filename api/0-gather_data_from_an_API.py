@@ -4,6 +4,7 @@ This script gets information from a rest API and then sorts
 through it and prints a formatted string
 """
 
+import csv
 import requests
 import sys
 
@@ -50,6 +51,18 @@ def request_processor():
     for task in employee_tasks:
         if task['completed']:
             print("\t {}".format(task['title']))
+
+    csv_file_name = "{}.csv".format(employee_id)
+    with open(csv_file_name, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        for task in employee_tasks:
+            writer.writerow([
+                task['userId'],
+                task['title'],
+                task['completed'],
+                task['title']
+            ])
 
 
 if __name__ == "__main__":
