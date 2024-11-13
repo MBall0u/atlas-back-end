@@ -56,7 +56,7 @@ def request_processor():
     csv_file_name = "{}.csv".format(employee_id)
     with open(csv_file_name, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        for task in employee_tasks:
+        for task in tasks_json:
             writer.writerow([
                 employee_id,
                 employee_name,
