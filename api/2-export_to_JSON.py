@@ -5,9 +5,9 @@ through it and prints a formatted string
 """
 
 import csv
+import json
 import requests
 import sys
-import json
 
 
 def request_processor():
