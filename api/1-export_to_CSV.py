@@ -38,7 +38,7 @@ def request_processor():
 
     tasks_json = tasks_get.json()
 
-    employee_name = employee_get.json().get("name")
+    employee_name = employee_get.json().get("username")
 
     total_tasks = len(tasks_json)
     completed_tasks = [task for task in tasks_json if task.get("completed")]
