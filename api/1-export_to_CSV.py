@@ -55,16 +55,13 @@ def request_processor():
 
     csv_file_name = "{}.csv".format(employee_id)
     with open(csv_file_name, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(
-            ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
-            )
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in employee_tasks:
             writer.writerow([
-                task['userId'],
-                task['title'],
-                task['completed'],
-                task['title']
+                employee_id,
+                employee_name,
+                task.get("completed"),
+                task.get("title")
             ])
 
 
